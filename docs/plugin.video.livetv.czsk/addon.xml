@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.livetv.czsk" version="1.5.0" name="LiveTV - CZ/SK" provider-name="cratos38">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests" version="2.22.0"/>
+        <import addon="script.module.beautifulsoup4" version="4.9.0"/>
+        <import addon="inputstream.adaptive" version="21.0.0" optional="true"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en">Live TV channels from Czech Republic and Slovakia</summary>
+        <summary lang="cs">Ceska a slovenska televize zive</summary>
+        <summary lang="sk">Ceska a slovenska televizia nazivo</summary>
+        <description lang="en">Watch free live TV channels from Czech Republic and Slovakia. Supports EPG (Electronic Program Guide) and integration with PVR IPTV Simple Client.
+
+VERSION FOR KODI 21 OMEGA - Updated Python API
+
+Supported channels:
+- CT (Ceska televize): CT1, CT2, CT24, CT Sport, CT:D/art
+- STVR (Slovak TV): Jednotka, Dvojka, Trojka, :24, Sport + CATCHUP (archive)
+- Prima: Prima, Cool, Max, Krimi, Love, Zoom, Star, Show, CNN Prima News
+- JOJ: JOJ, Plus, WAU, Family, Cinema, 24
+- TA3, Ocko, and more...
+
+Features:
+- Live TV streaming
+- EPG support (7 days)
+- Catch-up for supported channels
+- PVR IPTV Simple Client integration
+- Kodi 21 Omega compatible (InfoTagVideo API)</description>
+        <description lang="cs">Sledujte ceske a slovenske televizni kanaly zdarma. Verze pro Kodi 21 Omega.</description>
+        <description lang="sk">Sledujte ceske a slovenske televizne kanaly zadarmo. Verzia pre Kodi 21 Omega.</description>
+        <license>AGPL-3.0-or-later</license>
+        <website>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</website>
+        <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
+        <assets>
+            <icon>resources/icon.png</icon>
+        </assets>
+        <news>
+v1.5.0 (2026-01-17) - KODI 21 OMEGA
+- NEW: Full Kodi 21 Omega compatibility
+- UPDATED: Using InfoTagVideo API instead of deprecated setInfo()
+- UPDATED: inputstream.adaptive 21.0.0 requirement
+- All features from v1.4.23 included
+
+v1.4.23 (2026-01-17)
+- BUGFIX: EPG processor now downloads STVR archive index automatically
+- v1.4.21 had bug: index not downloaded during EPG regeneration
+- Now catchup-id is correctly added to STVR programs in EPG
+
+v1.4.22 (2026-01-17)
+- FIX: EPG now auto-downloads STVR archive index
+- FIX: Improved archive search logging
+
+v1.4.21 (2026-01-17)
+- NEW: STVR provider (replaces old RTVS)
+- NEW: STVR CATCHUP support for archive programs
+- STVR catchup searches by PROGRAM NAME in archive
+- Only programs available in STVR archive show catchup (green dot)
+- Archive index: ~1200 programs (STVR own productions)
+- Licensed content (movies, foreign series) NOT in archive
+- EPG marks STVR programs with catchup-id only if in archive
+
+v1.3.2 (2026-01-16)
+- NEW: CATCHUP support for Prima channels (requires free iprima.cz account)
+- Prima, Prima Cool, Prima Max, Prima Krimi, Prima Love, Prima Zoom, Prima Star, Prima Show, CNN Prima News
+- NEW: Prima+ API integration for archive playback
+- NEW: Settings for Prima+ login (email/password)
+
+v1.3.1 (2026-01-16)
+- NEW: CATCHUP support for CT channels (7 days archive)
+- CT1, CT2, CT24, CT Sport, CT:D/art now support catchup
+- Uses new CT API 2025/2026
+        </news>
+    </extension>
+</addon>

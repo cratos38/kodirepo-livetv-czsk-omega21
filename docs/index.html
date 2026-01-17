@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveTV CZ/SK - Kodi Repository</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        .subtitle {
+            color: #888;
+            font-size: 1.2em;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .card h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        .addon {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .addon-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            border-radius: 15px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+        .addon-info h3 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .addon-info p {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        .version {
+            background: #00d4ff;
+            color: #1a1a2e;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+        .steps {
+            counter-reset: step;
+        }
+        .step {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 20px;
+        }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            width: 35px;
+            height: 35px;
+            background: #00d4ff;
+            color: #1a1a2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        code {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #00d4ff;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .channel {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .channel-name {
+            font-weight: bold;
+            color: #fff;
+        }
+        .channel-country {
+            font-size: 0.8em;
+            color: #888;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+        }
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+        .badge.catchup {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LiveTV CZ/SK</h1>
+            <p class="subtitle">Kodi Repository for Czech and Slovak TV Channels</p>
+        </header>
+
+        <div class="card">
+            <h2>Available Addons</h2>
+            <div class="addon">
+                <div class="addon-icon">TV</div>
+                <div class="addon-info">
+                    <h3>LiveTV - CZ/SK <span class="version">v1.0.0</span></h3>
+                    <p>Live TV streaming for Czech and Slovak channels with EPG support</p>
+                    <a href="plugin.video.livetv.czsk/plugin.video.livetv.czsk-1.0.0.zip" class="btn">Download</a>
+                </div>
+            </div>
+            <div class="addon">
+                <div class="addon-icon">📦</div>
+                <div class="addon-info">
+                    <h3>Repository <span class="version">v1.0.0</span></h3>
+                    <p>Install this repository to receive automatic updates</p>
+                    <a href="repository.livetv.czsk/repository.livetv.czsk-1.0.0.zip" class="btn">Download Repository</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Installation Guide</h2>
+            <div class="steps">
+                <div class="step">
+                    <strong>Add Repository Source</strong><br>
+                    Go to <code>Settings</code> → <code>File Manager</code> → <code>Add Source</code>
+                </div>
+                <div class="step">
+                    <strong>Enter Repository URL</strong><br>
+                    URL: <code>https://cratos38.github.io/kodirepo-livetv-czsk/</code><br>
+                    Name: <code>LiveTV CZ/SK</code>
+                </div>
+                <div class="step">
+                    <strong>Install Repository</strong><br>
+                    Go to <code>Add-ons</code> → <code>Install from zip file</code> → <code>LiveTV CZ/SK</code><br>
+                    Select <code>repository.livetv.czsk-1.0.0.zip</code>
+                </div>
+                <div class="step">
+                    <strong>Install Addon</strong><br>
+                    Go to <code>Add-ons</code> → <code>Install from repository</code> → <code>LiveTV CZ/SK Repository</code><br>
+                    Select <code>Video add-ons</code> → <code>LiveTV - CZ/SK</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Features</h2>
+            <p>
+                <span class="badge">Live TV</span>
+                <span class="badge">EPG 7 Days</span>
+                <span class="badge catchup">Catch-up (CT)</span>
+                <span class="badge catchup">Catch-up (RTVS)</span>
+                <span class="badge">PVR Integration</span>
+                <span class="badge">Kodi 20 Nexus</span>
+                <span class="badge">Kodi 21 Omega</span>
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Supported Channels</h2>
+            <h3 style="color: #00d4ff; margin: 20px 0 10px;">Czech Republic 🇨🇿</h3>
+            <div class="channels-grid">
+                <div class="channel"><span class="channel-name">CT1</span><br><span class="channel-country">Ceska televize</span></div>
+                <div class="channel"><span class="channel-name">CT2</span><br><span class="channel-country">Ceska televize</span></div>
+                <div class="channel"><span class="channel-name">CT24</span><br><span class="channel-country">Ceska televize</span></div>
+                <div class="channel"><span class="channel-name">CT Sport</span><br><span class="channel-country">Ceska televize</span></div>
+                <div class="channel"><span class="channel-name">Prima</span><br><span class="channel-country">Prima</span></div>
+                <div class="channel"><span class="channel-name">Prima Cool</span><br><span class="channel-country">Prima</span></div>
+                <div class="channel"><span class="channel-name">Nova</span><br><span class="channel-country">Nova</span></div>
+                <div class="channel"><span class="channel-name">TV Barrandov</span><br><span class="channel-country">Barrandov</span></div>
+                <div class="channel"><span class="channel-name">Ocko</span><br><span class="channel-country">Music</span></div>
+            </div>
+            <h3 style="color: #00d4ff; margin: 20px 0 10px;">Slovakia 🇸🇰</h3>
+            <div class="channels-grid">
+                <div class="channel"><span class="channel-name">Jednotka</span><br><span class="channel-country">RTVS</span></div>
+                <div class="channel"><span class="channel-name">Dvojka</span><br><span class="channel-country">RTVS</span></div>
+                <div class="channel"><span class="channel-name">:24</span><br><span class="channel-country">RTVS</span></div>
+                <div class="channel"><span class="channel-name">JOJ</span><br><span class="channel-country">JOJ</span></div>
+                <div class="channel"><span class="channel-name">JOJ Plus</span><br><span class="channel-country">JOJ</span></div>
+                <div class="channel"><span class="channel-name">WAU</span><br><span class="channel-country">JOJ</span></div>
+                <div class="channel"><span class="channel-name">TA3</span><br><span class="channel-country">News</span></div>
+                <div class="channel"><span class="channel-name">CS Film</span><br><span class="channel-country">JOJ</span></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <a href="https://github.com/cratos38/kodirepo-livetv-czsk">GitHub</a> | 
+                <a href="https://github.com/cratos38/kodirepo-livetv-czsk/issues">Report Issues</a>
+            </p>
+            <p style="margin-top: 10px;">© 2026 cratos38 | License: AGPL-3.0</p>
+        </footer>
+    </div>
+</body>
+</html>

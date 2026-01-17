@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="repository.livetv.czsk.omega21" name="LiveTV CZ/SK Repository - Omega 21" version="1.0.0" provider-name="cratos38">
+    <extension point="xbmc.addon.repository" name="LiveTV CZ/SK Repository - Omega 21">
+        <dir>
+            <info compressed="false">https://cratos38.github.io/kodirepo-livetv-czsk-omega21/addons.xml</info>
+            <checksum>https://cratos38.github.io/kodirepo-livetv-czsk-omega21/addons.xml.md5</checksum>
+            <datadir zip="true">https://cratos38.github.io/kodirepo-livetv-czsk-omega21/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">LiveTV CZ/SK Repository for Kodi 21 Omega</summary>
+        <summary lang="cs">LiveTV CZ/SK Repozitar pro Kodi 21 Omega</summary>
+        <summary lang="sk">LiveTV CZ/SK Repozitar pre Kodi 21 Omega</summary>
+        <description lang="en">Repository for Czech and Slovak TV addons - Kodi 21 Omega version.</description>
+        <platform>all</platform>
+        <license>AGPL-3.0</license>
+        <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>

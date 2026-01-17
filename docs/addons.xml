@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="repository.livetv.czsk" name="LiveTV CZ/SK Repository (Omega 21)" version="1.1.0" provider-name="cratos38">
+        <extension point="xbmc.addon.repository" name="LiveTV CZ/SK Repository">
+            <dir>
+                <info compressed="false">https://cratos38.github.io/kodirepo-livetv-czsk-omega21/addons.xml</info>
+                <checksum>https://cratos38.github.io/kodirepo-livetv-czsk-omega21/addons.xml.md5</checksum>
+                <datadir zip="true">https://cratos38.github.io/kodirepo-livetv-czsk-omega21/</datadir>
+            </dir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">LiveTV CZ/SK Repository for Kodi 21 Omega</summary>
+            <summary lang="cs">LiveTV CZ/SK Repozitar pro Kodi 21 Omega</summary>
+            <summary lang="sk">LiveTV CZ/SK Repozitar pre Kodi 21 Omega</summary>
+            <description lang="en">Repository for Czech and Slovak TV addons - Kodi 21 Omega version. Uses updated Python API (InfoTagVideo).</description>
+            <platform>all</platform>
+            <license>AGPL-3.0</license>
+            <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
+            <assets>
+                <icon>icon.png</icon>
+            </assets>
+        </extension>
+    </addon>
+    <addon id="plugin.video.livetv.czsk" version="1.5.0" name="LiveTV - CZ/SK" provider-name="cratos38">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+            <import addon="script.module.requests" version="2.22.0"/>
+            <import addon="script.module.beautifulsoup4" version="4.9.0"/>
+            <import addon="inputstream.adaptive" version="21.0.0" optional="true"/>
+        </requires>
+        <extension point="xbmc.python.pluginsource" library="main.py">
+            <provides>video</provides>
+        </extension>
+        <extension point="xbmc.service" library="service.py" start="startup"/>
+        <extension point="xbmc.addon.metadata">
+            <platform>all</platform>
+            <summary lang="en">Live TV channels from Czech Republic and Slovakia - Kodi 21 Omega</summary>
+            <summary lang="cs">Ceska a slovenska televize zive - Kodi 21 Omega</summary>
+            <summary lang="sk">Ceska a slovenska televizia nazivo - Kodi 21 Omega</summary>
+            <description lang="en">Watch free live TV channels from Czech Republic and Slovakia. Supports EPG (Electronic Program Guide) and integration with PVR IPTV Simple Client.
+
+VERSION FOR KODI 21 OMEGA - Updated Python API (InfoTagVideo)
+
+Supported channels:
+- CT (Ceska televize): CT1, CT2, CT24, CT Sport, CT:D/art + CATCHUP
+- STVR (Slovak TV): Jednotka, Dvojka, Trojka, :24, Sport + CATCHUP (archive ~1200 programs)
+- Prima: Prima, Cool, Max, Krimi, Love, Zoom, Star, Show, CNN Prima News + CATCHUP
+- JOJ: JOJ, Plus, WAU, Family, Cinema, 24
+- Nova: Nova Cinema (live only, no catchup - requires DRM)
+- TA3, Ocko, and more...
+
+Features:
+- Live TV streaming
+- EPG support (7 days)
+- Catch-up for CT, Prima and STVR
+- STVR catchup: ~1200 own productions (auto-downloaded index)
+- PVR IPTV Simple Client integration
+- Kodi 21 Omega compatible (InfoTagVideo API)</description>
+            <license>AGPL-3.0-or-later</license>
+            <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
+            <assets>
+                <icon>resources/icon.png</icon>
+            </assets>
+            <news>
+v1.5.0 (2026-01-17) - KODI 21 OMEGA VERSION
+- NEW: Full Kodi 21 Omega compatibility
+- UPDATED: Using InfoTagVideo API instead of deprecated setInfo()
+- UPDATED: inputstream.adaptive 21.0.0 requirement
+- All features from v1.4.23 included (CT, Prima, STVR catchup)
+
+v1.4.23 (2026-01-17) - Base version
+- FIX: EPG processor now auto-downloads STVR archive index
+- FIX: Catchup working correctly for all supported channels
+- STVR archive: ~1200 programs with automatic search by title
+            </news>
+        </extension>
+    </addon>
+</addons>
