@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.livetv.czsk" version="1.5.0" name="LiveTV - CZ/SK" provider-name="cratos38">
+<addon id="plugin.video.livetv.czsk" version="1.5.1" name="LiveTV - CZ/SK" provider-name="cratos38">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests" version="2.22.0"/>
@@ -41,6 +41,13 @@ Features:
             <icon>resources/icon.png</icon>
         </assets>
         <news>
+v1.5.1 (2026-01-17) - KODI 21 OMEGA FIX 403
+- CRITICAL FIX: Streams returning 403 error now work
+- Added manifest_headers (required in Omega, stream_headers alone not enough)
+- Added setMimeType + setContentLookup(False) to prevent HEAD request 403
+- Removed deprecated manifest_type property (auto-detected in Omega)
+- JOJ, Nova, and other channels should now work correctly
+
 v1.5.0 (2026-01-17) - KODI 21 OMEGA
 - NEW: Full Kodi 21 Omega compatibility
 - UPDATED: Using InfoTagVideo API instead of deprecated setInfo()

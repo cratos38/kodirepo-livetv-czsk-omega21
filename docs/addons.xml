@@ -21,7 +21,7 @@
             </assets>
         </extension>
     </addon>
-    <addon id="plugin.video.livetv.czsk" version="1.5.0" name="LiveTV - CZ/SK" provider-name="cratos38">
+    <addon id="plugin.video.livetv.czsk" version="1.5.1" name="LiveTV - CZ/SK" provider-name="cratos38">
         <requires>
             <import addon="xbmc.python" version="3.0.0"/>
             <import addon="script.module.requests" version="2.22.0"/>
@@ -62,16 +62,18 @@ Features:
                 <icon>resources/icon.png</icon>
             </assets>
             <news>
+v1.5.1 (2026-01-17) - FIX 403 ERRORS
+- CRITICAL FIX: All channels now work (JOJ, CS, Nova, etc.)
+- Added manifest_headers (required in Kodi 21 Omega)
+- Added setMimeType + setContentLookup(False) to prevent HEAD 403
+- Removed deprecated manifest_type property
+- Catchup working for CT, Prima, STVR
+
 v1.5.0 (2026-01-17) - KODI 21 OMEGA VERSION
 - NEW: Full Kodi 21 Omega compatibility
 - UPDATED: Using InfoTagVideo API instead of deprecated setInfo()
 - UPDATED: inputstream.adaptive 21.0.0 requirement
 - All features from v1.4.23 included (CT, Prima, STVR catchup)
-
-v1.4.23 (2026-01-17) - Base version
-- FIX: EPG processor now auto-downloads STVR archive index
-- FIX: Catchup working correctly for all supported channels
-- STVR archive: ~1200 programs with automatic search by title
             </news>
         </extension>
     </addon>
