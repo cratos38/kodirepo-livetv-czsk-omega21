@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.audio.radio.czsk" name="Radio CZ/SK" version="1.1.0" provider-name="CacheSK">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>audio</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Czech and Slovak Internet Radio Stations</summary>
+        <summary lang="cs">České a slovenské internetové rádio</summary>
+        <summary lang="sk">České a slovenské internetové rádio</summary>
+        <description lang="en">Listen to 400+ Czech and Slovak radio stations using Radio Browser API. Auto-generates M3U playlist for PVR IPTV Simple Client. Features: Český rozhlas, STVR/RTVS, and hundreds of commercial radios. Auto-updates from internet.</description>
+        <description lang="cs">Poslouchejte 400+ českých a slovenských rádií pomocí Radio Browser API. Automaticky generuje M3U playlist pro PVR IPTV Simple Client. Obsahuje: Český rozhlas, STVR/RTVS a stovky komerčních rádií. Automatická aktualizace z internetu.</description>
+        <description lang="sk">Počúvajte 400+ českých a slovenských rádií pomocou Radio Browser API. Automaticky generuje M3U playlist pre PVR IPTV Simple Client. Obsahuje: Český rozhlas, STVR/RTVS a stovky komerčných rádií. Automatická aktualizácia z internetu.</description>
+        <platform>all</platform>
+        <license>GPL-3.0-or-later</license>
+        <forum></forum>
+        <website>https://github.com/cache-sk</website>
+        <source>https://github.com/cache-sk/plugin.audio.radio.czsk</source>
+        <news>v1.1.0 - Radio Browser API integration (400+ stations), auto-update, search, bundled M3U playlist</news>
+        <assets>
+            <icon>resources/media/icon.png</icon>
+            <fanart>resources/media/fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

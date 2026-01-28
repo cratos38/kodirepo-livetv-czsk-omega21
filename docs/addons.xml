@@ -12,7 +12,7 @@
             <summary lang="en">LiveTV CZ/SK Repository for Kodi 21 Omega</summary>
             <summary lang="cs">LiveTV CZ/SK Repozitar pro Kodi 21 Omega</summary>
             <summary lang="sk">LiveTV CZ/SK Repozitar pre Kodi 21 Omega</summary>
-            <description lang="en">Repository for Czech and Slovak TV addons - Kodi 21 Omega version.</description>
+            <description lang="en">Repository for Czech and Slovak TV and Radio addons - Kodi 21 Omega version.</description>
             <platform>all</platform>
             <license>AGPL-3.0</license>
             <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
@@ -63,12 +63,37 @@ v1.5.2 (2026-01-21)
 - Uses "Freeview method": URL + headers with pipe separator (url|headers)
 - FFmpeg handles HLS directly - more reliable than inputstream.adaptive
 - All channels now work in PVR Simple Client: JOJ, CS Film, Prima, Nova, etc.
-- Removed "Export M3U Direct" option (was causing issues)
-
-TECHNICAL NOTE:
-inputstream.adaptive in Kodi 21 (Omega) fails with "Codec id 27 require 
-extradata" on some HLS streams. FFmpeg's native demuxer handles this correctly.
-This is how Freeview addon solves the same problem.
+            </news>
+        </extension>
+    </addon>
+    <addon id="plugin.audio.radio.czsk" name="Radio CZ/SK" version="1.1.0" provider-name="cratos38">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+        <extension point="xbmc.python.pluginsource" library="main.py">
+            <provides>audio</provides>
+        </extension>
+        <extension point="xbmc.service" library="service.py" start="startup"/>
+        <extension point="xbmc.addon.metadata">
+            <platform>all</platform>
+            <summary lang="en">Czech and Slovak Internet Radio Stations</summary>
+            <summary lang="cs">Ceske a slovenske internetove radio</summary>
+            <summary lang="sk">Ceske a slovenske internetove radio</summary>
+            <description lang="en">Listen to 400+ Czech and Slovak radio stations. 
+Features: Cesky rozhlas, STVR/RTVS, and hundreds of commercial radios.
+Auto-generates M3U playlist for PVR IPTV Simple Client.</description>
+            <license>GPL-3.0-or-later</license>
+            <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
+            <assets>
+                <icon>resources/media/icon.png</icon>
+                <fanart>resources/media/fanart.jpg</fanart>
+            </assets>
+            <news>
+v1.1.0 (2026-01-21)
+- Radio Browser API integration (400+ stations)
+- Auto-update from internet
+- Search function
+- Bundled M3U playlist for PVR Simple Client
             </news>
         </extension>
     </addon>
