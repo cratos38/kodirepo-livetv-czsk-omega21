@@ -19,19 +19,21 @@ Watch free live TV channels from Czech Republic and Slovakia.
 ### Czech Republic 🇨🇿
 | Channel | Live | Catchup |
 |---------|------|---------|
-| ČT1, ČT2, ČT24, ČT Sport, ČT:D/art | ✅ | ✅ 7 days |
-| Prima, Cool, Max, Krimi, Love, Zoom, Star, Show, CNN | ✅ | ✅ 7 days |
+| ČT1, ČT2, ČT24, ČT Sport, ČT:D/art | ✅ | ⚠️ |
+| Prima, Cool, Max, Krimi, Love, Zoom, Star, Show, CNN | ✅ | ⚠️ |
 | Nova, Nova Cinema, Nova Action, Nova Gold | ✅ | ❌ |
 | Óčko, Óčko Star, Óčko Express | ✅ | ❌ |
 
 ### Slovakia 🇸🇰
 | Channel | Live | Catchup |
 |---------|------|---------|
-| STVR Jednotka, Dvojka, :24, Šport | ✅ | ✅ Archive |
+| STVR Jednotka, Dvojka, :24, Šport | ✅ | ⚠️ |
 | JOJ, JOJ Plus, WAU, JOJ Family, JOJ Cinema, JOJ 24 | ✅ | ❌ |
 | CS Film, CS History, CS Mystery | ✅ | ❌ |
 | TA3 | ✅ | ❌ |
 | Markíza, Doma, Dajto | ✅ | ❌ |
+
+⚠️ **Catchup**: Works but with issues (may play wrong program). Will be fixed in future update.
 
 ## Installation
 
