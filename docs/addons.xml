@@ -12,7 +12,7 @@
             <summary lang="en">LiveTV CZ/SK Repository for Kodi 21 Omega</summary>
             <summary lang="cs">LiveTV CZ/SK Repozitar pro Kodi 21 Omega</summary>
             <summary lang="sk">LiveTV CZ/SK Repozitar pre Kodi 21 Omega</summary>
-            <description lang="en">Repository for Czech and Slovak TV addons - Kodi 21 Omega version. Uses updated Python API (InfoTagVideo).</description>
+            <description lang="en">Repository for Czech and Slovak TV addons - Kodi 21 Omega version.</description>
             <platform>all</platform>
             <license>AGPL-3.0</license>
             <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
@@ -21,12 +21,12 @@
             </assets>
         </extension>
     </addon>
-    <addon id="plugin.video.livetv.czsk" version="1.5.1" name="LiveTV - CZ/SK" provider-name="cratos38">
+    <addon id="plugin.video.livetv.czsk" version="1.5.2" name="LiveTV - CZ/SK" provider-name="cratos38">
         <requires>
             <import addon="xbmc.python" version="3.0.0"/>
             <import addon="script.module.requests" version="2.22.0"/>
             <import addon="script.module.beautifulsoup4" version="4.9.0"/>
-            <import addon="inputstream.adaptive" version="21.0.0" optional="true"/>
+            <import addon="inputstream.adaptive" version="2.0.0" optional="true"/>
         </requires>
         <extension point="xbmc.python.pluginsource" library="main.py">
             <provides>video</provides>
@@ -34,46 +34,41 @@
         <extension point="xbmc.service" library="service.py" start="startup"/>
         <extension point="xbmc.addon.metadata">
             <platform>all</platform>
-            <summary lang="en">Live TV channels from Czech Republic and Slovakia - Kodi 21 Omega</summary>
-            <summary lang="cs">Ceska a slovenska televize zive - Kodi 21 Omega</summary>
-            <summary lang="sk">Ceska a slovenska televizia nazivo - Kodi 21 Omega</summary>
-            <description lang="en">Watch free live TV channels from Czech Republic and Slovakia. Supports EPG (Electronic Program Guide) and integration with PVR IPTV Simple Client.
-
-VERSION FOR KODI 21 OMEGA - Updated Python API (InfoTagVideo)
+            <summary lang="en">Live TV channels from Czech Republic and Slovakia</summary>
+            <summary lang="cs">Ceska a slovenska televize zive</summary>
+            <summary lang="sk">Ceska a slovenska televizia nazivo</summary>
+            <description lang="en">Watch free live TV channels from Czech Republic and Slovakia. Supports EPG and PVR IPTV Simple Client.
 
 Supported channels:
-- CT (Ceska televize): CT1, CT2, CT24, CT Sport, CT:D/art + CATCHUP
-- STVR (Slovak TV): Jednotka, Dvojka, Trojka, :24, Sport + CATCHUP (archive ~1200 programs)
-- Prima: Prima, Cool, Max, Krimi, Love, Zoom, Star, Show, CNN Prima News + CATCHUP
-- JOJ: JOJ, Plus, WAU, Family, Cinema, 24
-- Nova: Nova Cinema (live only, no catchup - requires DRM)
-- TA3, Ocko, and more...
+- CT (Ceska televize): CT1, CT2, CT24, CT Sport, CT:D/art
+- STVR (Slovak TV): Jednotka, Dvojka, Trojka, :24, Sport + CATCHUP
+- Prima: Prima, Cool, Max, Krimi, Love, Zoom, Star, Show, CNN Prima News
+- JOJ: JOJ, Plus, WAU, Family, Cinema, CS Film, CS History, CS Mystery
+- Nova, TA3, Ocko, Markiza and more...
 
 Features:
-- Live TV streaming
+- Live TV streaming (all channels work in PVR Simple Client!)
 - EPG support (7 days)
-- Catch-up for CT, Prima and STVR
-- STVR catchup: ~1200 own productions (auto-downloaded index)
-- PVR IPTV Simple Client integration
-- Kodi 21 Omega compatible (InfoTagVideo API)</description>
+- Catch-up for CT, Prima, STVR
+- Uses Freeview method (FFmpeg direct, no inputstream.adaptive issues)</description>
             <license>AGPL-3.0-or-later</license>
             <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
             <assets>
                 <icon>resources/icon.png</icon>
+                <fanart>resources/media/fanart.jpg</fanart>
             </assets>
             <news>
-v1.5.1 (2026-01-17) - FIX 403 ERRORS
-- CRITICAL FIX: All channels now work (JOJ, CS, Nova, etc.)
-- Added manifest_headers (required in Kodi 21 Omega)
-- Added setMimeType + setContentLookup(False) to prevent HEAD 403
-- Removed deprecated manifest_type property
-- Catchup working for CT, Prima, STVR
+v1.5.2 (2026-01-21)
+- FIX: Removed inputstream.adaptive for HLS streams (caused extradata errors)
+- Uses "Freeview method": URL + headers with pipe separator (url|headers)
+- FFmpeg handles HLS directly - more reliable than inputstream.adaptive
+- All channels now work in PVR Simple Client: JOJ, CS Film, Prima, Nova, etc.
+- Removed "Export M3U Direct" option (was causing issues)
 
-v1.5.0 (2026-01-17) - KODI 21 OMEGA VERSION
-- NEW: Full Kodi 21 Omega compatibility
-- UPDATED: Using InfoTagVideo API instead of deprecated setInfo()
-- UPDATED: inputstream.adaptive 21.0.0 requirement
-- All features from v1.4.23 included (CT, Prima, STVR catchup)
+TECHNICAL NOTE:
+inputstream.adaptive in Kodi 21 (Omega) fails with "Codec id 27 require 
+extradata" on some HLS streams. FFmpeg's native demuxer handles this correctly.
+This is how Freeview addon solves the same problem.
             </news>
         </extension>
     </addon>

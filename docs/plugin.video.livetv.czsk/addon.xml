@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.livetv.czsk" version="1.5.1" name="LiveTV - CZ/SK" provider-name="cratos38">
+<addon id="plugin.video.livetv.czsk" version="1.5.2" name="LiveTV - CZ/SK" provider-name="cratos38">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests" version="2.22.0"/>
         <import addon="script.module.beautifulsoup4" version="4.9.0"/>
-        <import addon="inputstream.adaptive" version="21.0.0" optional="true"/>
+        <import addon="inputstream.adaptive" version="2.0.0" optional="true"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
@@ -17,8 +17,6 @@
         <summary lang="sk">Ceska a slovenska televizia nazivo</summary>
         <description lang="en">Watch free live TV channels from Czech Republic and Slovakia. Supports EPG (Electronic Program Guide) and integration with PVR IPTV Simple Client.
 
-VERSION FOR KODI 21 OMEGA - Updated Python API
-
 Supported channels:
 - CT (Ceska televize): CT1, CT2, CT24, CT Sport, CT:D/art
 - STVR (Slovak TV): Jednotka, Dvojka, Trojka, :24, Sport + CATCHUP (archive)
@@ -29,30 +27,31 @@ Supported channels:
 Features:
 - Live TV streaming
 - EPG support (7 days)
-- Catch-up for supported channels
-- PVR IPTV Simple Client integration
-- Kodi 21 Omega compatible (InfoTagVideo API)</description>
-        <description lang="cs">Sledujte ceske a slovenske televizni kanaly zdarma. Verze pro Kodi 21 Omega.</description>
-        <description lang="sk">Sledujte ceske a slovenske televizne kanaly zadarmo. Verzia pre Kodi 21 Omega.</description>
+- Catch-up for supported channels (Phase 3)
+- PVR IPTV Simple Client integration</description>
+        <description lang="cs">Sledujte ceske a slovenske televizni kanaly zdarma.</description>
+        <description lang="sk">Sledujte ceske a slovenske televizne kanaly zadarmo.</description>
         <license>AGPL-3.0-or-later</license>
-        <website>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</website>
-        <source>https://github.com/cratos38/kodirepo-livetv-czsk-omega21</source>
+        <website>https://github.com/cratos38/kodirepo-fix</website>
+        <source>https://github.com/cratos38/kodirepo-fix</source>
         <assets>
             <icon>resources/icon.png</icon>
+            <fanart>resources/media/fanart.jpg</fanart>
         </assets>
         <news>
-v1.5.1 (2026-01-17) - KODI 21 OMEGA FIX 403
-- CRITICAL FIX: Streams returning 403 error now work
-- Added manifest_headers (required in Omega, stream_headers alone not enough)
-- Added setMimeType + setContentLookup(False) to prevent HEAD request 403
-- Removed deprecated manifest_type property (auto-detected in Omega)
-- JOJ, Nova, and other channels should now work correctly
+v1.5.2 (2026-01-21)
+- FIX: Removed inputstream.adaptive for HLS streams (caused extradata errors)
+- Uses "Freeview method": URL + headers with pipe separator (url|headers)
+- FFmpeg handles HLS directly - more reliable than inputstream.adaptive
+- All channels now work in PVR Simple Client: JOJ, CS Film, Prima, Nova, etc.
+- Removed "Export M3U Direct" option (was causing issues)
+- Added documentation comments explaining the solution
 
-v1.5.0 (2026-01-17) - KODI 21 OMEGA
-- NEW: Full Kodi 21 Omega compatibility
-- UPDATED: Using InfoTagVideo API instead of deprecated setInfo()
-- UPDATED: inputstream.adaptive 21.0.0 requirement
-- All features from v1.4.23 included
+TECHNICAL NOTE:
+inputstream.adaptive in Kodi 21 (Omega) fails with "Codec id 27 require 
+extradata" on some HLS streams. The first segment may not contain H.264 
+SPS/PPS data. FFmpeg's native demuxer handles this correctly by retrying.
+This is how Freeview addon solves the same problem.
 
 v1.4.23 (2026-01-17)
 - BUGFIX: EPG processor now downloads STVR archive index automatically
@@ -82,6 +81,49 @@ v1.3.1 (2026-01-16)
 - NEW: CATCHUP support for CT channels (7 days archive)
 - CT1, CT2, CT24, CT Sport, CT:D/art now support catchup
 - Uses new CT API 2025/2026
+
+v1.3.0 (2026-01-16)
+- NEW: Auto-restart Kodi option after PVR config
+- NEW: Clear instructions if channels don't appear
+- Tells user: TV > Context menu > Update channels
+
+v1.2.9 (2026-01-16)
+- FIXED: PVR instance config write (like Freeview)
+- Added debug logging for PVR setup
+
+v1.2.8 (2026-01-16)
+- FIXED: Settings.xml format for Kodi Nexus
+- Custom icon (retro red TV with antenna)
+- PVR auto-config with instance support
+
+v1.2.6 (2026-01-16)
+- FIXED: PVR setup works with instance-based config
+
+v1.2.5 (2026-01-16)
+- Instructions only (didn't auto-configure)
+
+v1.2.4 (2026-01-16)
+- Attempted auto-config (doesn't work with instances)
+
+v1.2.3 (2026-01-16)
+- NEW: Main menu with options
+
+v1.2.2 (2026-01-16)
+- FIXED: NO REMAPPING - use iptv-epg.org IDs directly!
+
+v1.2.1 (2026-01-16)
+- Attempted ID remapping (didn't work)
+
+v1.2.0 (2026-01-16)
+- FIXED: BeautifulSoup4 dependency added
+- FIXED: EPG processor now creates epg.xml correctly
+- NEW: Regenerate EPG button in settings
+- NEW: Export M3U button in settings
+
+v1.1.0 (2026-01-16)
+- NEW: EPG support (Electronic Program Guide)
+- Downloads EPG from iptv-epg.org
+- EPG mapped for 30+ channels
         </news>
     </extension>
 </addon>
